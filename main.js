@@ -49,16 +49,21 @@ export async function ambildaftarsiswa() {
 export async function tambahsiswa(tanggal, nis, nama, alamat, notlpn, kelas, keterangan) {
   try {
     const dokRef = await addDoc(collection(db, 'Absensi_siswa'), {
-      tanggal: dok.data().tanggal,
-      nis:dok.data().nis,
-      nama:dok.data().nama,
-      alamat:dok.data().alamat,
-      notlpn:dok.data().notlpn,
-      kelas:dok.data().kelas,
-      keterangan:dok.data().keterangan,
+      tanggal:tanggal,
+      nis:nis,
+      nama:nama,
+      alamat:alamat,
+      notlpn:notlpn,
+      kelas:kelas,
+      keterangan:keterangan,
     });
     console.log('berhasil menembah siswa ' + dokRef.id);
   } catch (e) {
     console.log('gagal menambah siswa ' + e);
   }
+}
+
+
+export async function hapussiswa(docId) {
+  await deleteDoc(doc(db, "Absensi_siswa", docId));
 }
