@@ -40,7 +40,7 @@
   <a href="forum-data-siswa.html">Absensi siswa</a>
   
     <script type="module">
-    import { ambildaftarsiswa, hapussiswa } from './main.js';
+    import { ambildaftarsiswa, hapusAbsensi } from './main.js';
 
     $(document).ready(async function() {
       let elemenDaftar = $("#daftar-siswa > tbody");
@@ -74,7 +74,7 @@
     });
     
           $('.tombol-hapus').click(async function() {
-        await hapussiswa($(this).attr('data'));
+        await hapusAbsensi($(this).attr('data'));
         location.reload();
       })
   </script>

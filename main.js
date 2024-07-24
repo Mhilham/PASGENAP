@@ -64,6 +64,25 @@ export async function tambahsiswa(tanggal, nis, nama, alamat, notlpn, kelas, ket
 }
 
 
-export async function hapussiswa(docId) {
-  await deleteDoc(doc(db, "Absensi_siswa", docId));
+export async function hapusAbsensi(docId) {
+  await deleteDoc(doc(db, "absensi_siswa", docId));
+}
+
+export async function ubahAbsensi(docId, tanggal, nis, nama, alamat, noTlpn, kelas, keterangan) {
+  await updateDoc(doc(db, "absensi_siswa", docId), {
+    tanggal: tanggal,
+    nis: nis,
+    nama: nama,
+    alamat: alamat,
+    notlpn: notlpn,
+    kelas: kelas,
+    keterangan: keterangan
+  });
+}
+
+export async function ambilAbsensi(docId) {
+  const docRef = await doc(db, "absensi_siswa", docId);
+  const docSnap = await getDoc(docRef);
+
+  return await docSnap.data();
 }
