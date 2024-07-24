@@ -63,7 +63,7 @@
             ' <a href="#" class="btn btn-warning link-ubah"  data="' +
             data.id +
             '">ubah</a> ' +
-            ' <button class="btn btn-danger tombol-hapus" data="' +
+            ' <button class="btn btn-danger tombol-hapus coba" data="' +
             data.id +
             '">Hapus</button>' + '</td>' +
             '</tr>'
@@ -75,7 +75,7 @@
 
       });
 
-      $('.tombol-hapus').click(async function() {
+      $('.coba').click(async function() {
         await hapusAbsensi($(this).attr('data'));
         console.log($(this).attr('data'))
         location.reload();
