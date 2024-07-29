@@ -3,11 +3,13 @@ import {
   getFirestore,
   collection,
   addDoc,
+  getDoc,
   getDocs,
   deleteDoc,
   doc,
   query,
-  orderBy
+  orderBy,
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -55,7 +57,7 @@ export async function tambahsiswa(tanggal, nis, nama, alamat, notlpn, kelas, ket
       alamat:alamat,
       notlpn:notlpn,
       kelas:kelas,
-      keterangan:keterangan,
+      keterangan:keterangan
     });
     console.log('berhasil menembah siswa ' + dokRef.id);
   } catch (e) {
@@ -68,7 +70,7 @@ export async function hapusAbsensi(docId) {
   await deleteDoc(doc(db, "Absensi_siswa", docId));
 }
 
-export async function ubahAbsensi(docId, tanggal, nis, nama, alamat, noTlpn, kelas, keterangan) {
+export async function ubahAbsensi(docId, tanggal, nis, nama, alamat, notlpn, kelas, keterangan) {
   await updateDoc(doc(db, "Absensi_siswa", docId), {
     tanggal: tanggal,
     nis: nis,

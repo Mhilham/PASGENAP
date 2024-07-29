@@ -63,7 +63,7 @@
             ' <a href="#" class="btn btn-warning link-ubah"  data="' +
             data.id +
             '">ubah</a> ' +
-            ' <a href="#" class="btn btn-danger tombol-hapus coba" data="' +
+            ' <a href="#" class="btn btn-danger tombol-hapus" data="' +
             data.id +
             '">Hapus</a>' + '</td>' +
             '</tr>'
@@ -73,11 +73,16 @@
           nomor = nomor + 1;
         });
         
-        $('.coba').click(async function() {
+        $('.tombol-hapus').click(async function() {
           await hapusAbsensi($(this).attr('data'));
           console.log($(this).attr('data'))
           location.reload();
         })
+        
+        $('.link-ubah').click(async function() {
+      window.location.replace('ubah-data-siswa.html?docId=' + $(this).attr('data'));
+    })
+    
       });
     </script>
 
